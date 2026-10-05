@@ -1,0 +1,2 @@
+export const DURATION_MINUTES = 30
+export const DURATION_MS = DURATION_MINUTES * 60 * 1000
