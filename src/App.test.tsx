@@ -6,7 +6,7 @@ afterEach(() => vi.useRealTimers())
 const click = (name: string) => fireEvent.click(screen.getByRole('button', { name }))
 test('首頁沒有互動選項，選項二三在選單各自切換', () => {
   render(<App />)
-  expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('David 的AI 學習筆記')
+  expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('David 的 AI 學習筆記')
   expect(screen.queryByRole('button', { name: '選項二 · 綠' })).toBeNull()
   expect(screen.queryByRole('timer')).toBeNull()
   for (let i = 1; i <= 3; i++) { click('跟我打聲招呼'); expect(screen.getByText(`你已經按了 ${i} 次。`)).toBeVisible() }
@@ -45,3 +45,4 @@ test('番茄鐘網址可直接載入，瀏覽器返回首頁會切換內容', ()
   expect(screen.getByRole('heading', { level: 1 })).toBeVisible()
   expect(screen.queryByRole('timer')).toBeNull()
 })
+
