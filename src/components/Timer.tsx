@@ -1,6 +1,7 @@
 import { useTimer } from '../hooks/useTimer'
 import './Timer.css'
 import SoundControls from './SoundControls'
+import FlipClock from './FlipClock'
 import { DURATION_MINUTES } from '../config/timer'
 
 const statusText = {
@@ -33,7 +34,7 @@ export default function Timer() {
       </p>
       <div className="timer-face">
         <span className="time-caption" id="time-label">剩餘時間</span>
-        <p className="timer-time" role="timer" aria-labelledby="time-label" aria-live="off">{time}</p>
+        <FlipClock seconds={seconds} time={time} />
       </div>
       <p className="timer-guidance">{guidance[status]}</p>
       <div className="timer-actions" role="group" aria-label="計時操作">
@@ -48,3 +49,4 @@ export default function Timer() {
     </section>
   )
 }
+
