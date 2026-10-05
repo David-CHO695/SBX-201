@@ -44,3 +44,15 @@ pnpm exec vite --host 127.0.0.1 --port 5173
 ```
 
 npm 指令為一般使用方式，本次未實際執行 npm ci。請勿把 pnpm 啟動指令寫成 `pnpm run dev -- --host ...`，該版本會將額外 `--` 原樣傳入。
+
+## 秒針音效
+
+番茄鐘頁面新增音效開關，預設靜音；開啟後倒數每秒播放滴答。垂直音量控制為 1–10 段，預設 5，向上加大、向下降低。暫停、完成或重置後不播放。重新整理清除設定。音效使用瀏覽器 Web Audio，不需音訊檔案。
+
+## 公開 repository 與部署
+
+- GitHub repository：https://github.com/David-CHO695/SBX-201
+- 網站預定網址：https://david-cho695.github.io/SBX-201/
+- GitHub Pages 使用 Actions workflow，在 main 更新時先執行 npm ci、測試及 build，再發布 dist。
+- Repository 的 Settings → Pages → Source 設為 GitHub Actions。
+- 原有 base: './' 支援 repository 子路徑；#home 與 #pomodoro 不需伺服器額外路由設定。

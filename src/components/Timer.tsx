@@ -1,5 +1,6 @@
 import { useTimer } from '../hooks/useTimer'
 import './Timer.css'
+import SoundControls from './SoundControls'
 import { DURATION_MINUTES } from '../config/timer'
 
 const statusText = {
@@ -42,6 +43,7 @@ export default function Timer() {
         <button type="button" onClick={pause} disabled={status !== 'running'}>暫停</button>
         <button type="button" onClick={reset}>重置</button>
       </div>
+      <SoundControls seconds={seconds} running={status === 'running'} />
       <p className="timer-note">重置會回到 {DURATION_MINUTES}:00；重新整理不保留進度。</p>
     </section>
   )
