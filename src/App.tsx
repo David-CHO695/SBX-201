@@ -43,7 +43,7 @@ function SiteHeader({ navigate, page }: { navigate: (page: Page) => void; page: 
     </div>
     <a className="brand" href="#home" onClick={() => navigate('home')}><span>SBX-201</span></a>
   </header>
-  <nav className="page-tabs" aria-label="頁面導覽">{([['home', '主頁'], ['pomodoro', '番茄鐘'], ['sandbox-1', '沙河-1'], ['sandbox-2', '沙河-2']] as const).map(([id, label]) => <a key={id} href={`#${id}`} aria-current={page === id ? 'page' : undefined} onClick={() => navigate(id)}>{label}</a>)}</nav></>
+  <nav className="page-tabs" aria-label="頁面導覽">{([['home', '主頁'], ['pomodoro', '番茄鐘'], ['sandbox-1', '沙盒-1'], ['sandbox-2', '沙盒-2']] as const).map(([id, label]) => <a key={id} href={`#${id}`} aria-current={page === id ? 'page' : undefined} onClick={() => navigate(id)}>{label}</a>)}</nav></>
 }
 
 function LearningHome() {
@@ -68,6 +68,6 @@ export default function App() {
     window.location.hash = next
   }
   useEffect(() => { if (page === 'pomodoro') heading.current?.focus() }, [page])
-  return <><a className="skip-link" href={page === 'home' ? '#home' : '#pomodoro'}>跳至主要內容</a><SiteHeader navigate={navigate} page={page} /><main className={`workspace page-${page}`}><div hidden={page !== 'home'}><LearningHome /></div><section hidden={page !== 'pomodoro'} id="pomodoro" className="focus-section" aria-labelledby="focus-title"><div className="section-heading"><div><span className="eyebrow">FOCUS / {DURATION_MINUTES} MIN</span><h2 ref={heading} tabIndex={-1} id="focus-title">番茄鐘</h2></div><span className="focus-label">留給眼前的一件事</span></div><Timer /><p className="focus-footer">一次專注 {DURATION_MINUTES} 分鐘，慢慢完成重要的事。</p></section><section className="sandbox-page" hidden={page !== 'sandbox-1' && page !== 'sandbox-2'}><h1>{page === 'sandbox-1' ? '沙河-1' : '沙河-2'}</h1><p>此頁面預留給後續內容。</p></section></main><footer className="site-footer"><span>從一個小作品開始，學會指揮 AI。</span><span>SBX-201 · 學習 / 實作 / 專注</span></footer></>
+  return <><a className="skip-link" href={page === 'home' ? '#home' : '#pomodoro'}>跳至主要內容</a><SiteHeader navigate={navigate} page={page} /><main className={`workspace page-${page}`}><div hidden={page !== 'home'}><LearningHome /></div><section hidden={page !== 'pomodoro'} id="pomodoro" className="focus-section" aria-labelledby="focus-title"><div className="section-heading"><div><span className="eyebrow">FOCUS / {DURATION_MINUTES} MIN</span><h2 ref={heading} tabIndex={-1} id="focus-title">番茄鐘</h2></div><span className="focus-label">留給眼前的一件事</span></div><Timer /><p className="focus-footer">一次專注 {DURATION_MINUTES} 分鐘，慢慢完成重要的事。</p></section><section className="sandbox-page" hidden={page !== 'sandbox-1' && page !== 'sandbox-2'}><h1>{page === 'sandbox-1' ? '沙盒-1' : '沙盒-2'}</h1><p>此頁面預留給後續內容。</p></section></main><footer className="site-footer"><span>從一個小作品開始，學會指揮 AI。</span><span>SBX-201 · 學習 / 實作 / 專注</span></footer></>
 }
 
